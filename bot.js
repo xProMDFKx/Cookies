@@ -27,6 +27,7 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   message.channel.sendEmbed(embed)
   
 }
+});
 //BAN
 if (message.content.toLowerCase().startsWith('/ban')) {
     let member = message.mentions.members.first();
@@ -40,6 +41,7 @@ if (message.content.toLowerCase().startsWith('/ban')) {
   message.channel.send(`**${member.user.tag}** a fost banat de **${message.author.tag}** Motivul: ${reason}`);
   
 }
+});
 //KICK
 if (message.content.toLowerCase().startsWith('/kick')) {
     let member = message.mentions.members.first();
@@ -53,17 +55,18 @@ if (message.content.toLowerCase().startsWith('/kick')) {
   message.channel.send(`**${member.user.tag}** a primit kick de catre **${message.author.tag}** Motivul: ${reason}`);
   
 }
+});
 //HELP
 if (msg.content === '/help') {
     msg.channel.send('***Salut, eu am fost creat de @_xProMDFKx_#0957.Am fost creat ca sa ajut la moderarea serverului de discord.Eu detin comenzile: /ban, /kick, /delete, /forum si multe altele. Forumul comunitatii este : cookies-network.org***');
     
 }
+});
 //FORUM
 if (msg.content === '/forum') {
     msg.channel.send(':shield: ***Salut, forumul serverului este cookies-network.org***');
     
 }
- 
 });
  
 client.login(process.env.BOT_TOKEN);
