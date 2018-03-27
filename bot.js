@@ -32,7 +32,9 @@ client.on('message', msg => {
   if (msg.content === '/reload') {
     msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');
     
- //CLEAR
+  }
+  });
+client.on('message', msg => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
   if(!args[0]) return message.channel.send("no");
   message.channel.bulkDelete(args[0]).then(() => {
