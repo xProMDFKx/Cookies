@@ -57,12 +57,12 @@ if (message.content.toLowerCase().startsWith('/kick')) {
   if (msg.content === '/help') {
     msg.channel.send(':shield: ***Salut, eu am fost creat de @_xProMDFKx_#0957.Am fost creat ca sa ajut la moderarea serverului de discord.Eu detin comenzile: /ban, /kick, /delete, /forum si multe altele. Forumul comunitatii este : cookies-network.org  ***');
     
-  }
+}
 //FORUM
   if (msg.content === '/forum') {
     msg.channel.send(':shield: ***Salut, forumul serverului este cookies-network.org***');
     
-  }
+}
  
 });
  
