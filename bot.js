@@ -37,7 +37,7 @@ client.on('message', msg => {
   message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));   
     
-  }
+//SS
 client.on('message', msg => {
   if (msg.content === '/help') {
     msg.channel.send('***Creatorul meu este _xProMDFKx_#0957.Eu sunt creat pentru a modera servere de discord.Comenzile mele ! : /ban, /kick, /reload, /help, /forum  ***');
