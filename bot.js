@@ -21,4 +21,4 @@ if (message.content.startsWith(prefix / 'serverinfo')) {
 });
 
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+client.login(NDI4MTgzNjM4MDk0NjQzMjAw.DZv__A.JoZ7RGdYhK3CwYhlh7lJrfcgje0);
