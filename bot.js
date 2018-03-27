@@ -27,32 +27,60 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   message.channel.sendEmbed(embed)
   
 }
-//BAN
-if (message.content.toLowerCase().startsWith('/ban')) {
-    let member = message.mentions.members.first();
-    let reason = message.content.split(' ').slice(2).join(' ');
-  if(!message.guild.member(message.author).hasPermission('BAN_MEMBERS')) return message.channel.send("`Nu ai acces la aceasta comanda!`");
-  if(!member) return message.channel.send(":exclamation: ATENTIE, trebuie sa zici cui vrei sa ii dai ban");
-  if(!member.kickable)  return message.channel.send("`Aceasta persoana nu poate primi ban!`");
-  if(!reason) return message.channel.send("`Ai uitat sa pui motivul pentru care ii dai Ban lui " + member.tag + " !`");
-  member.ban(reason)
-  .catch(error => message.channel.send(`**Scuze ${message.author.tag} dar nu am putut sa dau Ban : ${error}**`));
-  message.channel.send(`**${member.user.tag}** a fost banat de **${message.author.tag}** Motivul: ${reason}`);
-  
-}
-//KICK
-if (message.content.toLowerCase().startsWith('/kick')) {
-    let member = message.mentions.members.first();
-    let reason = message.content.split(' ').slice(2).join(' ');
-  if(!message.guild.member(message.author).hasPermission('KICK_MEMBERS')) return message.reply("**Sorry, dar nu ai acces la aceasta comanda.!**");
-  if(!member) return message.channel.send(":exclamation: ATENTIE, trebuie sa zici cui vrei sa ii dai kick");
-  if(!member.kickable)  return message.reply("**Aceasta persoana nu poate fi data afara de pe server!**");
-  if(!reason) return message.reply("**Ai uitat sa pui motivul pentru care ii dai Kick lui " + member.tag + " !**");
-  member.kick(reason)
-  .catch(error => message.channel.send(`**Scuze ${message.author.tag} dar nu am putut sa dau Kick din cauza unei erori : ${error}**`));
-  message.channel.send(`**${member.user.tag}** a primit kick de catre **${message.author.tag}** Motivul: ${reason}`);
-  
-}
+if(cmd === `${prefix}kick`){
+
+    //!kick @daeshan askin for it
+
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
+
+    let kickChannel = message.guild.channels.find(`name`, "incidents");
+    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
+
+    return;
+  }
+
+  if(cmd === `${prefix}ban`){
+
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("Can't find user!");
+    let bReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+
+    let banEmbed = new Discord.RichEmbed()
+    .setDescription("~Ban~")
+    .setColor("#bc0000")
+    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned In", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", bReason);
+
+    let incidentchannel = message.guild.channels.find(`name`, "incidents");
+    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(bUser).ban(bReason);
+    incidentchannel.send(banEmbed);
+
+
+    return;
+  }
 });
 client.on('message', msg => {
   if (msg.content === '/reload') {
