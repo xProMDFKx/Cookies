@@ -27,10 +27,8 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   message.channel.sendEmbed(embed)
   
 }
+});
 if(cmd === `${prefix}kick`){
-
-    //!kick @daeshan askin for it
-
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
@@ -54,9 +52,8 @@ if(cmd === `${prefix}kick`){
 
     return;
   }
-
+});
   if(cmd === `${prefix}ban`){
-
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.join(" ").slice(22);
