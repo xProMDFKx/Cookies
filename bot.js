@@ -53,15 +53,10 @@ if (message.content.toLowerCase().startsWith('/kick')) {
   message.channel.send(`**${member.user.tag}** a primit kick de catre **${message.author.tag}** Motivul: ${reason}`);
   
 }
-//HELP
-if (msg.content === '/help') {
-    msg.channel.send('***Salut, eu am fost creat de @_xProMDFKx_#0957.Am fost creat ca sa ajut la moderarea serverului de discord.Eu detin comenzile: /ban, /kick, /delete, /forum si multe altele. Forumul comunitatii este : cookies-network.org***');
-    
-}
-//FORUM
-if (msg.content === '/forum') {
-    msg.channel.send(':shield: ***Salut, forumul serverului este cookies-network.org***');
-    
+});
+client.on('message', msg => {
+  if (msg.content === '-reload') {
+    msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');
 }
 });
  
