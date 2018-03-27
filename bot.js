@@ -5,7 +5,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.on('message', message => {
+//SERVERINFO
 if (message.content.startsWith(prefix / 'serverinfo')) {
   const embed = new Discord.RichEmbed()
   embed.addField('Membrii', message.guild.memberCount, true)
