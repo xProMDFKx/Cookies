@@ -17,6 +17,7 @@ if (message.content.startsWith(prefix / 'serverinfo')) {
   embed.setThumbnail(message.guild.iconURL)
   message.channel.sendEmbed(embed)
 }
+
 });
 
 // THIS  MUST  BE  THIS  WAY
