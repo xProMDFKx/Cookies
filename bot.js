@@ -8,8 +8,8 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === '-ajutor') {
     	message.reply('**Bun venit pe comunitatea noastra**');
-        message.reply('');
-        message.reply('**INFO**');
+        ('');
+        ('**INFO**');
   	}
 });
 
