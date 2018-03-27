@@ -55,8 +55,20 @@ if (message.content.toLowerCase().startsWith('/kick')) {
 }
 });
 client.on('message', msg => {
-  if (msg.content === '-reload') {
+  if (msg.content === '/reload') {
     msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');
+    
+}
+});
+client.on('message', msg => {
+  if (msg.content === '/help') {
+    msg.channel.send('***Creatorul meu este _xProMDFKx_#0957.Eu sunt creat pentru a modera servere de discord.Comenzile mele ! : -ban, -kick, -reload, -help, /forum  ***');
+    
+}
+});
+client.on('message', msg => {
+  if (msg.content === '/forum') {
+    msg.channel.send('Forumul nostru este ***cookies-network.org');
 }
 });
  
