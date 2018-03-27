@@ -1,30 +1,32 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-
-client.on('ready', () => {
-    console.log('I am ready!');
-});
-
+const embed = new Discord.RichEmbed()
+const prefix = "%"
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
-  	}
+  let args = message.content.split(" ").slice(1);
     
+//SAY
+  if(message.content.startsWith(prefix + "say"))  {
+         message.delete()
+         const embed = new Discord.RichEmbed()
+         .setDescription(args.join(" "))
+         .setColor(0xff0000)
+    message.channel.sendEmbed(embed);
+ 
+     }
 //SERVERINFO
-client.on('message', message => {
-    if (message.content === 'ping') {
-    const embed = new Discord.RichEmbed()
-    embed.addField('Membrii', message.guild.memberCount, true)
-    embed.addField('Nume', message.guild.name, true)
-    embed.addField('Regiunie', message.guild.region, true)
-    embed.addField('Fondator', message.guild.owner, true)
-    embed.addField('ID', message.guild.id, true)
-    embed.setColor(`ff0000`)
-    embed.setThumbnail(message.guild.iconURL)
-    message.channel.sendEmbed(embed)
+if (message.content.startsWith(prefix + 'serverinfo')) {
+  const embed = new Discord.RichEmbed()
+  embed.addField('Members', message.guild.memberCount, true)
+  embed.addField('Name', message.guild.name, true)
+  embed.addField('Region', message.guild.region, true)
+  embed.addField('Owner', message.guild.owner, true)
+  embed.addField('ID', message.guild.id, true)
+  embed.setColor(`ff0000`)
+  embed.setThumbnail(message.guild.iconURL)
+  message.channel.sendEmbed(embed)
 }
-    
+ 
 });
-
-// THIS  MUST  BE  THIS  WAY
+ 
 client.login(process.env.BOT_TOKEN);
