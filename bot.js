@@ -5,6 +5,11 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.reply('pong');
+  	}
+    
 //SERVERINFO
 if (message.content.startsWith(prefix / 'serverinfo')) {
   const embed = new Discord.RichEmbed()
@@ -16,9 +21,9 @@ if (message.content.startsWith(prefix / 'serverinfo')) {
   embed.setColor(`ff0000`)
   embed.setThumbnail(message.guild.iconURL)
   message.channel.sendEmbed(embed)
-}
-
+   }
+    
 });
 
 // THIS  MUST  BE  THIS  WAY
-client.login(NDI4MTgzNjM4MDk0NjQzMjAw.DZv__A.JoZ7RGdYhK3CwYhlh7lJrfcgje0);
+client.login(process.env.BOT_TOKEN);
