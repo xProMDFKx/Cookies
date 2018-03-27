@@ -25,6 +25,7 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   embed.setColor(`ff0000`)
   embed.setThumbnail(message.guild.iconURL)
   message.channel.sendEmbed(embed)
+  
 }
 //BAN
 if (message.content.toLowerCase().startsWith('/ban')) {
@@ -37,6 +38,7 @@ if (message.content.toLowerCase().startsWith('/ban')) {
   member.ban(reason)
   .catch(error => message.channel.send(`**Scuze ${message.author.tag} dar nu am putut sa dau Ban : ${error}**`));
   message.channel.send(`**${member.user.tag}** a fost banat de **${message.author.tag}** Motivul: ${reason}`);
+  
 }
 //KICK
 if (message.content.toLowerCase().startsWith('/kick')) {
@@ -49,14 +51,17 @@ if (message.content.toLowerCase().startsWith('/kick')) {
   member.kick(reason)
   .catch(error => message.channel.send(`**Scuze ${message.author.tag} dar nu am putut sa dau Kick din cauza unei erori : ${error}**`));
   message.channel.send(`**${member.user.tag}** a primit kick de catre **${message.author.tag}** Motivul: ${reason}`);
+  
 }
 //HELP
   if (msg.content === '/help') {
     msg.channel.send(':shield: ***Salut, eu am fost creat de @_xProMDFKx_#0957.Am fost creat ca sa ajut la moderarea serverului de discord.Eu detin comenzile: /ban, /kick, /delete, /forum si multe altele. Forumul comunitatii este : cookies-network.org  ***');
+    
   }
 //FORUM
   if (msg.content === '/forum') {
     msg.channel.send(':shield: ***Salut, forumul serverului este cookies-network.org***');
+    
   }
  
 });
