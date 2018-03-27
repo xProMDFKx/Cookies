@@ -58,13 +58,6 @@ if (message.content.toLowerCase().startsWith('/kick')) {
   if (msg.content === '/forum') {
     msg.channel.send(':shield: ***Salut, forumul serverului este cookies-network.org***');
   }
-//DELETE
-   if(args[1]) {
-     client.guilds.forEach(guild => {
-guild.members.forEach(member => {
-member.send(reason)
-message.delete()
-}
  
 });
  
