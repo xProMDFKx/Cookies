@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith(prefix / 'serverinfo')) {
+if (message.content.startsWith(prefix / 'serverinfo')) {
   const embed = new Discord.RichEmbed()
   embed.addField('Membrii', message.guild.memberCount, true)
   embed.addField('Nume', message.guild.name, true)
