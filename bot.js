@@ -24,29 +24,29 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   embed.setColor(`ff0000`)
   embed.setThumbnail(message.guild.iconURL)
   message.channel.sendEmbed(embed)
-  
   }
   });
+  
 client.on('message', msg => {
   if (msg.content === '/reload') {
-    msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');
-    
+    msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');  
   }
   });
+  
 client.on('message', msg => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
   if(!args[0]) return message.channel.send("no");
   message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));   
-    
   }
   });
+  
 client.on('message', msg => {
   if (msg.content === '/help') {
     msg.channel.send('***Creatorul meu este _xProMDFKx_#0957.Eu sunt creat pentru a modera servere de discord.Comenzile mele ! : /ban, /kick, /reload, /help, /forum  ***');
-    
   }
   });
+  
 client.on('message', msg => {
   if (msg.content === '/forum') {
     msg.channel.send('Forumul nostru este ***cookies-network.org***');
