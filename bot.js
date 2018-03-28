@@ -1,25 +1,18 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-module.exports.run = async (bot, message, args) => {
-
+//CLEAR
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
   if(!args[0]) return message.channel.send("no");
   message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));
+    }
 });
-
-}
-
-module.exports.help = {
-  name: "clear"
-   }
-});
-
+    
 client.on('message', message => {
     if (message.content === '/help') {
     	message.reply('***Creatorul meu este _xProMDFKx_#0957.Eu sunt creat pentru a modera servere de discord.Comenzile mele ! : /ban, /kick, /reload, /help, /forum  ***');
-  	}
+    }
 });
 
 client.on('message', message => {
