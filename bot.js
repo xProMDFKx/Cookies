@@ -25,13 +25,13 @@ if (message.content.startsWith(prefix + 'serverinfo')) {
   embed.setThumbnail(message.guild.iconURL)
   message.channel.sendEmbed(embed)
   }
-  });
+});
   
 client.on('message', msg => {
   if (msg.content === '/reload') {
     msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');  
   }
-  });
+});
   
 client.on('message', msg => {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
@@ -39,17 +39,29 @@ client.on('message', msg => {
   message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));   
   }
-  });
+});
   
 client.on('message', msg => {
   if (msg.content === '/help') {
     msg.channel.send('***Creatorul meu este _xProMDFKx_#0957.Eu sunt creat pentru a modera servere de discord.Comenzile mele ! : /ban, /kick, /reload, /help, /forum  ***');
   }
-  });
+});
   
 client.on('message', msg => {
   if (msg.content === '/forum') {
     msg.channel.send('Forumul nostru este ***cookies-network.org***');
+  }
+});
+  
+client.on('message', msg => {
+  if (msg.content === '-blacklist') {
+    msg.channel.send(':ok_hand: ***Am primit o eroare,si nu pot executa aceasta comanda,eroare 0311***');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === '-reload') {
+    msg.channel.send('***RELOADIND CONFIG!! :ok_hand: DONE! ***');
   }
 });
  
