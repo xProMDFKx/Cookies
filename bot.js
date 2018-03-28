@@ -104,7 +104,8 @@ client.on('message', msg => {
     msg.channel.send(':ok_hand: ***Tager si Pro sunt cei mai desteptii.***');
   }
 });
-  if (msg.content === '-say') {
+client.on('message', message => {
+if(message.content.startsWith('/say')) {
          message.delete()
          const embed = new Discord.RichEmbed()
          .setDescription(args.join(" "))
@@ -133,4 +134,5 @@ client.on("ready", () => {
     console.log("On " + client.guilds.size + " guilds.")
     console.log("With " + client.users.size + " members.")
 });
-client.login(token)
+
+client.login(process.env.BOT_TOKEN);
